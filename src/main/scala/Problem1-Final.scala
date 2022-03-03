@@ -54,7 +54,7 @@ object Problem1Solution extends Serializable {
 
         for (infectedPerson <- infectedPeople) {
           for (uninfectedPerson <- uninfectedPeople) {
-            if (!uninfectedPeopleSet.contains(uninfectedPerson._3) && ToolBox.getDistance(infectedPerson._1, uninfectedPerson._1) < 7) {
+            if (!uninfectedPeopleSet.contains(uninfectedPerson._3) && ToolBox.getDistance(infectedPerson._1, uninfectedPerson._1) < 6) {
               uninfectedPeopleSet.add(uninfectedPerson._3)
             }
           }
@@ -86,7 +86,7 @@ object Problem1Solution extends Serializable {
           numOfInfectedContacts.put(infectedPerson._3, 0)
 
           for (uninfectedPerson <- uninfectedPeople) {
-            if (ToolBoxDraft.getDistance(infectedPerson._1, uninfectedPerson._1) < 7) {
+            if (ToolBox.getDistance(infectedPerson._1, uninfectedPerson._1) < 6) {
               val oldNumber : Int = numOfInfectedContacts.get(infectedPerson._3).get
               numOfInfectedContacts.put(infectedPerson._3, oldNumber + 1)
             }
