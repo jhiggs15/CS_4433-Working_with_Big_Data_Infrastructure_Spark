@@ -18,81 +18,80 @@ object Main {
     var startTime : Long = 0;
     var endTime : Double = 0;
 
-    println("j2")
-
-    if(args.length >= 1) {
-      if(args(0) == "1") {
-        if(args.length == 1) {
-          startTime = System.currentTimeMillis()
-          Problem1Solution.Q1(sc, peopleFile, infectedSmallFile, outputFile)
-          endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-        }
-        else {
-          args(1) match {
-            case "final" => {
-              startTime = System.currentTimeMillis()
-              Problem1Solution.Q1(sc, peopleFile, infectedSmallFile, outputFile)
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
-            case "firstDraft" => {
-              startTime = System.currentTimeMillis()
-              Problem1SolutionDraft.Q1(sc, peopleFile, infectedSmallFile, outputFile + "d1")
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
-            case "secondDraft" => {
-              startTime = System.currentTimeMillis()
-              Problem1SolutionDraft2.Q1(sc, peopleFile, infectedSmallFile, outputFile + "d2")
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
-            case "thirdDraft" => {
-              startTime = System.currentTimeMillis()
-              Problem1SolutionDraft3.Q1(sc, peopleFile, infectedSmallFile, outputFile + "d3")
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
-            case _ => {
-              startTime = System.currentTimeMillis()
-              Problem1Solution.Q1(sc, peopleFile, infectedSmallFile, outputFile)
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
+    if (args.length == 4) {
+      if (args(0) == "1") {
+        startTime = System.currentTimeMillis()
+        Problem1Solution.Q1(sc, args(1), args(2), args(3))
+        endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+      }
+      else if (args(0) == "2") {
+        startTime = System.currentTimeMillis()
+        Problem1Solution.Q2(sc, args(1), args(2), args(3))
+        endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+      }
+    }
+    else if (args.length == 5) {
+      if(args(1) == "1") {
+        args(0) match {
+          case "final" => {
+            startTime = System.currentTimeMillis()
+            Problem1Solution.Q1(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+          }
+          case "firstDraft" => {
+            startTime = System.currentTimeMillis()
+            Problem1SolutionDraft.Q1(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+          }
+          case "secondDraft" => {
+            startTime = System.currentTimeMillis()
+            Problem1SolutionDraft2.Q1(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+          }
+          case "thirdDraft" => {
+            startTime = System.currentTimeMillis()
+            Problem1SolutionDraft3.Q1(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+          }
+          case _ => {
+            startTime = System.currentTimeMillis()
+            Problem1Solution.Q1(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
           }
         }
       }
-      else if(args(0) == "2") {
-        if(args.length == 1) {
-          startTime = System.currentTimeMillis()
-          Problem1Solution.Q1(sc, peopleFile, infectedSmallFile, outputFile)
-          endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-        }
-        else {
-          args(1) match {
-            case "final" => {
-              startTime = System.currentTimeMillis()
-              Problem1Solution.Q2(sc, peopleFile, infectedLargeFile, outputFile)
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
-            case "firstDraft" => {
-              startTime = System.currentTimeMillis()
-              startTime = System.currentTimeMillis()
-              Problem1SolutionDraft.Q2(sc, peopleFile, infectedLargeFile, outputFile + "d1")
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
-            case "secondDraft" => {
-              startTime = System.currentTimeMillis()
-              Problem1SolutionDraft4.Q2(sc, peopleFile, infectedLargeFile, outputFile + "d2")
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
-            case _ => {
-              startTime = System.currentTimeMillis()
-              Problem1Solution.Q2(sc, peopleFile, infectedLargeFile, outputFile)
-              endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
-            }
+      else if (args(1) == "2") {
+        args(0) match {
+          case "final" => {
+            startTime = System.currentTimeMillis()
+            Problem1Solution.Q2(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+          }
+          case "firstDraft" => {
+            startTime = System.currentTimeMillis()
+            startTime = System.currentTimeMillis()
+            Problem1SolutionDraft.Q2(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+          }
+          case "secondDraft" => {
+            startTime = System.currentTimeMillis()
+            Problem1SolutionDraft4.Q2(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
+          }
+          case _ => {
+            startTime = System.currentTimeMillis()
+            Problem1Solution.Q2(sc, args(2), args(3), args(4))
+            endTime = ((System.currentTimeMillis() - startTime) / 1000.0)
           }
         }
-
       }
-      println("Problem " + args(0) +  " Time " + endTime + " seconds")
 
     }
+
+    println("Problem " + args(0) +  " Time " + endTime + " seconds")
+
+
+
 
 
 
